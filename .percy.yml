@@ -1,0 +1,10 @@
+version: 1
+snapshot:
+  widths: [375, 720, 1280]
+  min-height: 1024
+  percy-css: |
+    iframe {
+      display: none;
+    }
+static-snapshots: {}
+agent: {}

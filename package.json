@@ -1,0 +1,37 @@
+{
+	"name": "cypress-ui-api-tests",
+	"version": "1.0.0",
+	"description": "Automated software testing with cypress",
+	"main": "index.js",
+	"scripts": {
+		"cy:open": "cypress open",
+		"cy:run": "cypress run",
+		"cy:run-tests": "cypress run --spec='cypress/integration/cucumber/login.feature'",
+		"cy:update-snapshots": "cypress run --env updateSnapshots=true --spec='cypress/integration/run/devices/image.spec.js'",
+		"cy:run-tests-with-reporter": "cypress run --reporter cypress-image-snapshot/reporter --spec='cypress/integration/run/devices/image.spec.js'",
+		"cy-run-tests-with-no-failure": "cypress run --env failOnSnapshotDiff=false",
+		"cy:percy": "percy exec -- cypress run --spec='cypress/integration/run/devices/image.spec.js'"
+	},
+	"keywords": [
+		"testing",
+		"cypress",
+		"automation",
+		"snapshots",
+		"bdd",
+		"cucumber",
+		"percy"
+	],
+	"author": "Vladislav Shmakov",
+	"license": "ISC",
+	"devDependencies": {
+		"@percy/cypress": "^2.3.2",
+		"cypress": "^5.3.0",
+		"cypress-cucumber-preprocessor": "^4.0.0",
+		"cypress-image-snapshot": "^3.1.1",
+		"cypress-xpath": "^1.6.0",
+		"prettier": "2.1.1"
+	},
+	"cypress-cucumber-preprocessor": {
+		"nonGlobalStepDefinitions": true
+	}
+}
