@@ -6,11 +6,12 @@
 	"scripts": {
 		"cy:open": "cypress open",
 		"cy:run": "cypress run",
-		"cy:run-tests": "cypress run --spec='cypress/integration/cucumber/login.feature'",
-		"cy:update-snapshots": "cypress run --env updateSnapshots=true --spec='cypress/integration/run/devices/image.spec.js'",
+		"cy:run-tests": "cypress run --spec='cypress/integration/run/devices/login.spec.js'",
+		"cy:update-snapshots": "cypress run --env updateSnapshots=true --spec='cypress/integration/run/devices/login.spec.js'",
 		"cy:run-tests-with-reporter": "cypress run --reporter cypress-image-snapshot/reporter --spec='cypress/integration/run/devices/image.spec.js'",
 		"cy-run-tests-with-no-failure": "cypress run --env failOnSnapshotDiff=false",
-		"cy:percy": "percy exec -- cypress run --spec='cypress/integration/run/devices/image.spec.js'"
+		"cy:percy": "percy exec -- cypress run --spec='cypress/integration/affise/*.js'",
+		"cy:run-dashboard": "percy exec -- cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'"
 	},
 	"keywords": [
 		"testing",

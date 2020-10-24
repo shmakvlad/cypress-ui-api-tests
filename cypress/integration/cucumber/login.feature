@@ -15,7 +15,7 @@ Feature: Login to Account
             }
             """
         Then I see dashboard page with "ivan@gmail.com" data
-            And I sea "offers.staging3.affise.com" in the url
+            And I see "offers.staging3.affise.com" in the url
 
 
     Scenario Outline: User with correct data and diffrent roles can login into own account
