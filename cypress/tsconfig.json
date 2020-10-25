@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"rootDir": ".",
 		"allowJs": true,
 		"baseUrl": "../node_modules",
 		"types": [
