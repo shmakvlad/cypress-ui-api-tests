@@ -2,6 +2,11 @@ describe('Working with custom commands', () => {
 
     let countries = ["Angola", "Bolivia", "Cyprus"];
 
+    before(() => {
+        const currentTime = new Date(Date.UTC(2019, 3, 21))
+        cy.clock(currentTime)
+    })
+
 	beforeEach(() => {
 		cy.login({
 			email: 'ivan@gmail.com',

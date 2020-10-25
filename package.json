@@ -11,7 +11,8 @@
 		"cy:run-tests-with-reporter": "cypress run --reporter cypress-image-snapshot/reporter --spec='cypress/integration/run/devices/image.spec.js'",
 		"cy-run-tests-with-no-failure": "cypress run --env failOnSnapshotDiff=false",
 		"cy:percy": "percy exec -- cypress run --spec='cypress/integration/affise/*.js'",
-		"cy:run-dashboard": "percy exec -- cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'"
+		"cy:run-dashboard": "cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'",
+		"cy:run-dashboard-percy": "percy exec -- cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'"
 	},
 	"keywords": [
 		"testing",
