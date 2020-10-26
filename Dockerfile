@@ -1,5 +1,5 @@
 # How to run ?
-# 1. docker run -it -v $PWD:/e2e -w /e2e cypress/included:3.2.0
+# 1. docker run -it -v $PWD:/e2e -w /e2e cypress/included:5.4.0
 # 2. docker build -t cypress .
 
 FROM cypress/base:10
