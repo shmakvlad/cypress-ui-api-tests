@@ -20,6 +20,12 @@ jobs:
       - run: 
           name: cypress run 
           command: npm run cy:run-dashboard-percy
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/snapshots
 
 workflows:
   version: 2
