@@ -8,3 +8,21 @@ services:
     volumes:
         - ./:/e2e
     command: "--record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'"
+
+  cypress-chrome:
+    image: cypress/included:5.4.0
+    container_name: cypress-chrome
+    working_dir: /e2e
+    volumes:
+        - ./:/e2e
+    command: "--browser chrome"
+
+  cypress-firefox:
+    image: cypress/included:5.4.0
+    container_name: cypress-firefox
+    working_dir: /e2e
+    environment:
+      - DEBUG=cypress:server:browsers:firefox-util,cypress:server:util:process_profiler
+    volumes:
+        - ./:/e2e
+    command: "--browser firefox --config video=false"

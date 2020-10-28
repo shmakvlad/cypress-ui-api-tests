@@ -12,7 +12,7 @@
 		"cy-run-tests-with-no-failure": "cypress run --env failOnSnapshotDiff=false",
 		"cy:percy": "percy exec -- cypress run --spec='cypress/integration/affise/run.spec.js'",
 		"cy:run-dashboard": "cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'",
-		"cy:run-dashboard-percy": "percy exec -- cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'",
+		"cy:run-dashboard-percy": "export PERCY_TOKEN=1a6a3c4c3686f3cbf1c994915eeaa1778ceadcd06f45c462253f80cda68f7619 && percy exec -- cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'",
 		"cy:docker-compose": "export PERCY_TOKEN=1a6a3c4c3686f3cbf1c994915eeaa1778ceadcd06f45c462253f80cda68f7619 && percy exec -- docker-compose up cypress",
 		"cy:docker-run": "export PERCY_TOKEN=1a6a3c4c3686f3cbf1c994915eeaa1778ceadcd06f45c462253f80cda68f7619 && percy exec -- docker run -it -v $PWD:/e2e -w /e2e --entrypoint=cypress cypress/included:5.4.0 run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --spec='cypress/integration/affise/*.js'"
 	},
