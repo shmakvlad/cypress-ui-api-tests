@@ -1,6 +1,6 @@
 import BasePage from './BasePage'
 
-const USER_EMAIL = '//*[@id="root"]/div[3]/div/div/div[4]/div/span'
+const USER_EMAIL = '//*[@id="root"]/div[3]/div/div[1]/div[6]/div/span'
 
 class DashboardPage extends BasePage {
     static openDashboardPage() {

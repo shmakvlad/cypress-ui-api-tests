@@ -16,6 +16,16 @@ describe('Visual Regression with Percy - Login Page', () => {
 	it('Tablet Layout', () => {
 		cy.percySnapshot('Statistic Tablet Layout')
 	})
+
+	it('snapshots with percyCSS', function() {
+		cy.percySnapshot('Snapshot with percyCSS', {
+		  percyCSS: `body { background-color: purple; }`
+		})
+
+		cy.percySnapshot('PercyCSS visability hidden', {
+			percyCSS: `@media only percy { .hide-in-percy {visibility: hidden;} }`
+		})
+	})
 })
 
 
@@ -43,3 +53,17 @@ describe('Visual Regression with Percy - Statistic Page', () => {
 		cy.percySnapshot('Offers')
 	})
 })
+
+
+describe('Snapshot live sites', () => {
+    it('snapshots a website with HTTP', function() {
+      cy.visit('http://example.com/')
+      cy.percySnapshot('http://example.com/')
+    })
+
+    it('snapshots a website with HTTPS, strict CSP, CORS and HSTS setup', function() {
+      cy.visit('https://sdk-test.percy.dev')
+      cy.percySnapshot('https://sdk-test.percy.dev')
+    })
+})
+

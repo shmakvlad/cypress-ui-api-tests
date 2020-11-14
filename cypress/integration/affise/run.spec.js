@@ -20,8 +20,8 @@ describe('Working with custom commands', () => {
         cy.get('body').type('{option}', { release: false })
 
         for (let country of countries) {
-            cy.get('.css__body--V2_B4-yAYgBdGqOlage5p.css__list-body--udTEus38zHdTrB037VZi_')
-                .find('.css__container--3121ovjkw34nn_wFJ_slqj')
+            cy.get('.kVMIkWONDSdNMXZSp785L')
+                .find('.M7PN41YGW-xT-UY7x4kPk')
                 .contains(country).click()
         }
 
