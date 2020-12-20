@@ -1,7 +1,9 @@
-class BasePage {
+export default class BasePage {
     static openPage(url){
         cy.visit(url)
     }
-}
 
-export default BasePage
+    static search(text){
+        cy.get('#search').type(`${text} {enter}`)
+    }
+}

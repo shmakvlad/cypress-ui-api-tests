@@ -33,6 +33,6 @@ When('I submit form with {} and {}:', (a, b) => {
 })
 
 Then('I see dashboard page with {} data', email => {
-	cy.xpath('//*[@id="root"]/div[3]/div/div/div[4]/div/span').should(
+	cy.xpath(DashboardPage.EMAIL_LOCATOR).should(
 		'have.text', email)
 })

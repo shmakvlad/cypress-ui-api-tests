@@ -3,7 +3,7 @@ Feature: Login to Account
     As a valid user
     I want to log into account
 
-@focus
+@focus 
     Scenario: User can login into own account
         Given I open login page
             And I want to wait 2 seconds
@@ -17,7 +17,7 @@ Feature: Login to Account
         Then I see dashboard page with "ivan@gmail.com" data
             And I see "offers.staging3.affise.com" in the url
 
-
+@focus 
     Scenario Outline: User with correct data and diffrent roles can login into own account
         Given I open login page
         When I submit form with <role> and <payload>:
