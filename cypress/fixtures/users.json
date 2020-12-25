@@ -1,0 +1,17 @@
+[
+	{
+		"username": "root@user.admin",
+		"password": "Sd6rCCSGGdoIhL8m",
+		"client": true
+	},
+	{
+		"username": "ivan@gmail.com",
+		"password": "vlad12-8",
+		"client": true
+    },
+    {
+		"username": "admin@admin.com",
+		"password": "123456789",
+		"client": false
+	}
+]

@@ -1,0 +1,28 @@
+{
+    "baseUrl": "http://offers.staging.affise.com",
+    "env": {
+		"host": "staging",
+		"policy": false
+	},
+	"ignoreTestFiles": [
+		"**/examples/*",
+		"**/cucumber/login/*.js",
+		"**/cucumber/login/*.md",
+		"**/common/*"
+	],
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
+	"waitForAnimations": true,
+	"animationDistanceThreshold": 20,
+    "video": false,
+    "screenshotOnRunFailure": true,
+	"defaultCommandTimeout": 4000,
+	"execTimeout": 60000,
+	"taskTimeout": 60000,
+	"pageLoadTimeout": 60000,
+	"requestTimeout": 5000,
+	"responseTimeout": 30000,
+	"failOnStatusCode": false,
+	"termsAndConditions": false,
+	"projectId": "voriuq"
+}
