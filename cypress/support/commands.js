@@ -1,5 +1,6 @@
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
 import '@percy/cypress'
+import { config } from 'chai'
 
 addMatchImageSnapshotCommand({
 	failureThreshold: 0.00,                 // threshold for entire image
@@ -25,9 +26,11 @@ Cypress.Commands.add('login', user => {
         cy.get('input[name=password]')
             .type(user.password)
 
-        cy.get('input')
-            .get('[type="checkbox"]')
-            .check()
+        if(Cypress.config().termsAndConditions === true){
+            cy.get('input')
+                .get('[type="checkbox"]')
+                .check()
+        }
 
         cy.contains('Sign in').click()
 })

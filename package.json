@@ -6,7 +6,10 @@
 	"scripts": {
 		"cy:open": "cypress open",
 		"cy:run": "cypress run",
-		"cy:run-tests": "cypress run --spec='cypress/integration/run/devices/login.spec.js'",
+		"cy:run:env": "cypress run --env configFile=staging",
+		"cy:run-electron": "cypress run --spec='cypress/integration/affise/po.spec.js'",
+		"cy:run-chrome": "cypress run --browser=chrome --spec='cypress/integration/affise/po.spec.js' --env configFile=staging3",
+		"cy:run-firefox": "cypress run --browser firefox --spec='cypress/integration/affise/po.spec.js' --env configFile=staging",
 		"cy:update-snapshots": "cypress run --env updateSnapshots=true --spec='cypress/integration/run/devices/login.spec.js'",
 		"cy:run-tests-with-reporter": "cypress run --reporter cypress-image-snapshot/reporter --spec='cypress/integration/run/devices/image.spec.js'",
 		"cy-run-tests-with-no-failure": "cypress run --record --key 89e71fe7-37f8-47f2-a1d5-8866297ce743 --env failOnSnapshotDiff=false --spec='cypress/integration/affise/run.spec.js'",

@@ -1,22 +1,27 @@
 {
-  "baseUrl": "http://offers.staging3.affise.com",
-  "ignoreTestFiles": [
-    "**/examples/*",
-    "**/cucumber/login/*.js",
-    "**/cucumber/login/*.md",
-    "**/common/*"
-  ],
-  "viewportWidth": 1920,
-  "viewportHeight": 1080,
-  "waitForAnimations": true,
-  "animationDistanceThreshold": 20,
-  "video": false,
-  "defaultCommandTimeout": 4000,
-  "execTimeout": 60000,
-  "taskTimeout": 60000,
-  "pageLoadTimeout": 60000,
-  "requestTimeout": 5000,
-  "responseTimeout": 30000,
-  "failOnStatusCode": false,
-  "projectId": "voriuq"
+	"baseUrl": "http://offers.staging3.affise.com",
+	"env": {
+		"host": "staging3",
+		"policy": true
+	},
+	"ignoreTestFiles": [
+		"**/examples/*",
+		"**/cucumber/login/*.js",
+		"**/cucumber/login/*.md",
+		"**/common/*"
+	],
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
+	"waitForAnimations": true,
+	"animationDistanceThreshold": 20,
+	"video": false,
+	"defaultCommandTimeout": 4000,
+	"execTimeout": 60000,
+	"taskTimeout": 60000,
+	"pageLoadTimeout": 60000,
+	"requestTimeout": 5000,
+	"responseTimeout": 30000,
+	"failOnStatusCode": false,
+	"termsAndConditions": true,
+	"projectId": "voriuq"
 }
