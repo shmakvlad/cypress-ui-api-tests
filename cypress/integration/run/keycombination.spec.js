@@ -47,4 +47,25 @@ describe('Working with key combination', () => {
             .contains('Password recovering')
 			.click()
 	})
+
+	it('Press Key Combinations', () => {
+		cy.visit({
+			url: 'http://google.com',
+			method: 'GET'
+		})
+
+	    cy.get('input.gLFyf.gsfi')
+			.type('{cmd}hello', { release: false })
+			.type('{cmd}').click()
+
+		cy.get('a')
+			.contains('русский')
+			.click({ force: true })
+
+		cy.get('input.gLFyf.gsfi')
+			.type('hello')
+			.type('{home}')
+			.type('{selectall}')
+			.type('{backspace}')
+	})
 })

@@ -1,10 +1,13 @@
 describe('Browser Actions', () => {
 	it('Load URL', () => {
 		cy.visit('')
+		cy.get('button').dblclick('topRight', { force: true, shiftKey: false, ctrlKey: false })
 	})
 
 	it('Load URL with timeout', () => {
 		cy.visit('', { timeout: 3000 })
+		cy.go('back')
+		cy.go('forward')
 	})
 
 	it('Check correct URL, title', () => {
@@ -24,6 +27,7 @@ describe('Browser Actions', () => {
 			'not.contain.text',
 			'button'
 		)
+		cy.get('#loginForm').submit()
 	})
 
 	it('And command', () => {
