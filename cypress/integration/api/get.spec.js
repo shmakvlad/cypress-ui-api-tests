@@ -21,6 +21,19 @@ describe('Work with cy.request', { baseUrl: Cypress.config('api_url') }, () => {
 		})
 	})
 
+	it('Validate negatiove status code', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/advertiser/5ea31b6a139536e39eb3f501',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			},
+			failOnStatusCode: false
+		})
+		.its('status')
+		.should('equal', 404)
+	})
+
 	it('GET with Auth, return response data', { baseUrl: 'http://10.201.0.173:45401' }, () => {
 		cy.request({
 			method: 'GET',
@@ -127,5 +140,117 @@ describe('Work with cy.request', { baseUrl: Cypress.config('api_url') }, () => {
 				expect(response.status).to.eq(200)
 			}
 		)
+	})
+
+	it('GET and Validate 1, include', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		})
+		.its('body')
+		.should('include', { status: 1 })
+		.and('deep.include', { status: 1 })
+		.and('include', { id: 85 })
+		.then(response => {
+			console.log(response)
+		})
+		.and('have.property', 'partner')
+		.its('manager').its('first_name')
+		.should('be.a', 'string')
+		.should('equal', 'Vladislav')
+	})
+
+	it('GET and Validate 2, its 1', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		}).its('body').its('partner').its('balance').its('USD').its('available').should('equal', 0)
+	})
+
+	it('GET and Validate 3, its 2', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		}).its('body').its('partner').its('payment_systems').its(1).its('id').should('equal', 18)
+	})
+
+	it('GET and Validate 4, deep.include', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		})
+		.its('body')
+		.its('partner')
+		.its('sub_accounts')
+		.should('deep.include', {
+			1: {
+				value: '',
+				except: 0,
+			},
+			2: {
+				value: '',
+				except: 0,
+			}
+		})
+	})
+
+	it('GET and Validate 5, deep.equal', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		})
+		.its('body')
+		.its('partner')
+		.its('sub_accounts')
+		.its('1')
+		.should('deep.equal', {
+			"value": "",
+			"except": 0
+		})
+	})
+
+	it('GET and Validate 6, have.property', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		})
+		.its('body')
+		.its('partner')
+		.should('have.property', 'login', '85')
+	})
+
+	it('GET and Validate 7, have.deep.property', () => {
+		cy.request({
+			method: 'GET',
+			url: '/3.0/admin/partner/85',
+			headers: {
+				'API-Key': Cypress.env('admin_api_key')
+			}
+		})
+		.its('body')
+		.its('partner')
+		.its('sub_accounts')
+		.should('have.deep.property', '1', {
+			"value": "",
+			"except": 0
+		})
 	})
 })
