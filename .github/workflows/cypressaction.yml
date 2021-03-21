@@ -1,0 +1,66 @@
+name: Build Cypress Ui, Api Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [ 1, 2, 3 ]
+    steps:
+      - uses: actions/checkout@v2
+
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: ~/.npm
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          # command: npm run cy:run-electron
+          browser: chrome
+          headless: true
+          record: true
+          parallel: true
+          group: 'Actions Chrome'
+          spec: | 
+            cypress/integration/affise/pageobject.spec.js
+            cypress/integration/affise/run.spec.js
+            cypress/integration/api/get.spec.js
+          # config: video=true,videoUploadOnPasses=true
+          # config-file: ./cypress/config/staging3.json
+          # command-prefix: 'percy exec -- npx'
+          # build: npm run build
+          # start: npm start
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # CYPRESS_host: api.dev.local
+          # CYPRESS_port: 4222
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: ./cypress/screenshots
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: ./cypress/videos
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-snapshots
+          path: ./cypress/snapshots

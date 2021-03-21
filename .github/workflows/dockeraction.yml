@@ -1,0 +1,31 @@
+name: Cypress Tests using Cypress Docker Image
+
+on: [ push ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+    container: 
+        image: cypress/browsers:node12.18.3-chrome87-ff82
+        options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: firefox
+          record: true
+          parallel: true
+          group: 'Actions Docker'
+          spec: | 
+            cypress/integration/affise/pageobject.spec.js
+            cypress/integration/affise/run.spec.js
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

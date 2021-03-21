@@ -14,7 +14,7 @@ describe('Working with custom commands', () => {
 		})
 	})
 
-	it.only('Choose countries in filter with press keyboard key "Option"', () => {
+	it('Choose countries in filter with press keyboard key "Option" and store artifacts', () => {
         cy.visit('/statistics/affise/daily')
 		cy.xpath('//*[@id="root"]/div[6]/div/div[2]/div[1]/div[1]/div/div[3]/div/div/div').click()
         cy.get('body').type('{option}', { release: false })
@@ -31,7 +31,16 @@ describe('Working with custom commands', () => {
         cy.matchImageSnapshot('snapshot')
     })
     
-    it('', () => {
-        
-    });
+    it.only('Choose countries in filter with press keyboard key "Option"', () => {
+        cy.visit('/statistics/affise/daily')
+        cy.xpath('//*[@id="root"]/div[6]/div/div[2]/div[1]/div[1]/div/div[3]/div/div/div').click()
+        cy.get('body').type('{option}', { release: false })
+        for (let country of countries) {
+            cy.get('.kVMIkWONDSdNMXZSp785L')
+                .find('.M7PN41YGW-xT-UY7x4kPk')
+                .contains(country).click()
+        }
+        cy.screenshot('screenshot')
+    })
+
 })

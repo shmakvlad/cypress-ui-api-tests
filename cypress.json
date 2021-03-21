@@ -1,5 +1,5 @@
 {
-	"baseUrl": "http://offers.staging3.affise.com",
+	"baseUrl": "https://offers-staging3.affise.com",
 	"api_url": "https://api-staging3.affise.com",
 	"api_keys": {
 		"admin": "7435e6cef5eedf60e38b1e77cf5a1e62",
@@ -22,6 +22,7 @@
 	"waitForAnimations": true,
 	"animationDistanceThreshold": 20,
 	"video": false,
+	"videoUploadOnPasses": false,
 	"defaultCommandTimeout": 4000,
 	"execTimeout": 60000,
 	"taskTimeout": 60000,
